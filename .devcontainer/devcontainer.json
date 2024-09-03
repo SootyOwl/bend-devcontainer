@@ -1,0 +1,53 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/rust
+{
+	"name": "Bend",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	// "image": "mcr.microsoft.com/devcontainers/rust:1-1-bullseye",
+	"build": {
+        // Path is relative to the devcontainer.json file.
+        "dockerfile": "Dockerfile"
+    },
+	// "features": {
+	// 	"ghcr.io/devcontainers/features/nvidia-cuda:1": {}
+	// },
+	"runArgs": [
+		"--gpus",
+		"all",
+		"--runtime=nvidia"
+	],
+	// "remoteEnv": {
+	// 	"PATH": "${containerEnv:PATH}:/usr/local/cuda/bin",
+	// 	"LD_LIBRARY_PATH": "$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64",
+	// 	"XLA_FLAGS": "--xla_gpu_cuda_data_dir=/usr/local/cuda"
+	//   },
+	// Use 'mounts' to make the cargo cache persistent in a Docker Volume.
+	// "mounts": [
+	// 	{
+	// 		"source": "devcontainer-cargo-cache-${devcontainerId}",
+	// 		"target": "/usr/local/cargo",
+	// 		"type": "volume"
+	// 	}
+	// ]
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "cargo install hvm && hvm --version && cargo install bend-lang && bend --version",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"RohanVashisht.bend"
+			]
+		}
+	},
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	"remoteUser": "vscode"
+}
